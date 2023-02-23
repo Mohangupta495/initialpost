@@ -11,7 +11,14 @@ const bookSchema = {
   author: String,
   price: String,
 };
+const mailSchema = {
+  name: String,
+  desc: String,
+  phone: String,
+  email: String,
+};
 const Book = mongoose.model("bookStore", bookSchema);
+const Mail = mongoose.model("mailStore", mailSchema);
 let books = [];
 app.use(cors());
 app.set("view engine", "ejs");
@@ -63,6 +70,24 @@ app.post("/getbook", async (req, res) => {
   const bookDetails = req.body;
   const book = await Book.findById(bookDetails._id);
   res.send(book);
+});
+app.post("/sendmail", (req, res) => {
+  const data = new Mail({
+    name: req.body.name,
+    email: req.body.email,
+    desc: req.body.desc,
+    phone: req.body.phone,
+  });
+
+  try {
+    const dataToSave = data.save();
+    res.send(dataToSave);
+    res.status(200).json(dataToSave);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+    res.send(error);
+  }
+  // res.send("This is my about route..... ");
 });
 app.get("/", (req, res) => {
   res.send("Hey this is my API");
