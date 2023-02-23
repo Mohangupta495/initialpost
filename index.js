@@ -78,14 +78,13 @@ app.post("/sendmail", (req, res) => {
     desc: req.body.desc,
     phone: req.body.phone,
   });
-
   try {
     const dataToSave = data.save();
-    res.send(dataToSave);
+    res.send({ isDone: true });
     res.status(200).json(dataToSave);
   } catch (error) {
     res.status(400).json({ message: error.message });
-    res.send(error);
+    res.send({ isDone: false });
   }
   // res.send("This is my about route..... ");
 });
