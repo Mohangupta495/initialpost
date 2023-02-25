@@ -72,6 +72,7 @@ app.post("/getbook", async (req, res) => {
   res.send(book);
 });
 app.post("/sendmail", (req, res) => {
+  res.setHeader("Content-Type", "text/html");
   console.log("data", req.body);
   const data = new Mail({
     name: req.body.name,
