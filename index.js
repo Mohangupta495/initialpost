@@ -12,7 +12,7 @@ const mailSchema = {
   phone: String,
   email: String,
 };
-const Mail = mongoose.model("mailStore", mailSchema);
+const Mail = mongoose.model("qureyStore", mailSchema);
 app.use(function (req, res, next) {
   //Enabling CORS
   res.header("Access-Control-Allow-Origin", "*");
@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 app.set("view engine", "ejs");
 
 mongoose.connect(
-  "mongodb+srv://mohan:mohan@webbrings.pageubo.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb+srv://mohan:mohan@webbrings.pageubo.mongodb.net/WebBrings?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -43,12 +43,12 @@ app.post("/sendmail", (req, res) => {
     phone: req.body.phone,
   });
   try {
-    const dataToSave = data.save();
-    res.send({ status: true, data: data, dataToSave: dataToSave });
+    const dataToSave = data;
+    res.send({ isSusses: true, mongoDB: dataToSave });
     res.status(200).json(dataToSave);
   } catch (error) {
     res.status(400).json({ message: error.message });
-    res.send({ status: false });
+    res.send({ isSusses: false, mongoDB: dataToSave });
   }
   // res.send("This is my about route..... ");
 });
