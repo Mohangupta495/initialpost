@@ -81,7 +81,7 @@ app.post("/sendmail", (req, res) => {
   });
   try {
     const dataToSave = data.save();
-    res.send({ status: true, data: data });
+    res.send({ status: true, data: data, dataToSave: dataToSave });
     res.status(200).json(dataToSave);
   } catch (error) {
     res.status(400).json({ message: error.message });
