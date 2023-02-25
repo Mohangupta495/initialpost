@@ -20,7 +20,7 @@ const mailSchema = {
 const Book = mongoose.model("bookStore", bookSchema);
 const Mail = mongoose.model("mailStore", mailSchema);
 let books = [];
-app.use(cors({ origin: "https://initialpost.vercel.app" }));
+app.use(cors({ origin: "https://webbrings.com/" }));
 app.set("view engine", "ejs");
 mongoose.connect(
   "mongodb+srv://mohan:mohan@cluster0.ox3vuuo.mongodb.net/bookStore?retryWrites=true&w=majority",
