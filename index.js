@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 app.set("view engine", "ejs");
 
 mongoose.connect(
-  "mongodb+srv://mohan:mohan@cluster0.ox3vuuo.mongodb.net/bookStore?retryWrites=true&w=majority",
+  "mongodb+srv://mohan:mohan@webbrings.pageubo.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
