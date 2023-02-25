@@ -72,13 +72,13 @@ app.post("/getbook", async (req, res) => {
   res.send(book);
 });
 app.post("/sendmail", (req, res) => {
+  console.log("data", req.body);
   const data = new Mail({
     name: req.body.name,
     email: req.body.email,
     desc: req.body.desc,
     phone: req.body.phone,
   });
-  console.log("data", data);
   try {
     const dataToSave = data.save();
     res.send({ isDone: true });
