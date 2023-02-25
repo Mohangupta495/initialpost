@@ -78,6 +78,7 @@ app.post("/sendmail", (req, res) => {
     desc: req.body.desc,
     phone: req.body.phone,
   });
+  console.log("data", data);
   try {
     const dataToSave = data.save();
     res.send({ isDone: true });
