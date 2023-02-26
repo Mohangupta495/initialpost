@@ -1,8 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const connectionDB = require("./database/mongoconnection.handler");
+const connectionDB = require("./src/database/mongoconnection.handler");
 const cors = require("cors");
-const visiterDetails = require("./models/visiter/controller/visiter.controller");
+const visiterDetails = require("./src/models/visiter/controller/visiter.controller");
 
 const app = express();
 const router = express.Router();

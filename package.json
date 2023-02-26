@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
+  "homepage": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf ./build && tsc",
+    "build": "rimraf ./build  && tsc && cp .env ./build/.env",
     "start": " nodemon src/server.js"
   },
   "author": "",
