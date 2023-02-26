@@ -1,7 +1,10 @@
 const express = require("express");
 const connectionDB = require("./srcc/database/mongoconnection.handler");
 const cors = require("cors");
-const visiterDetails = require("./srcc/models/visiter/controller/visiter.controller");
+const {
+  visiterDetails,
+  getVisiterDetails,
+} = require("./srcc/models/visiter/controller/visiter.controller");
 
 const app = express();
 const router = express.Router();
@@ -24,6 +27,7 @@ app.use(
 app.use(express.json());
 connectionDB();
 app.use("/", router.post("/visiter/signUp", visiterDetails));
+app.use("/", router.get("/visiter/visiterDetails", getVisiterDetails));
 app.get("/", (req, res) => {
   res.send("Welcome to WebBrings api section.");
 });
