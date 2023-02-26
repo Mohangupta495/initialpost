@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connectionDB = async () => {
   const MONGODB_URI =
-    "mongodb+srv://mohan:mohan@webbrings.pageubo.mongodb.net/retryWrites=true&w=majority";
+    "mongodb+srv://mohan:<password>@webbrings.pageubo.mongodb.net/WebBrings?retryWrites=true&w=majority";
   try {
     const conn = await mongoose.connect(MONGODB_URI, {
       useNewUrlParser: true,
